@@ -68,3 +68,34 @@ And the reality is they're less flexible than a simple state manager like Pinia,
 where you can just use vue composables.
 I think it's better to integrate such library when you **already have** backend API defined,
 then it could help you streamline the work and strucutre the code
+
+### Other Features
+
+### Session presistence
+
+Persisiting most user data could be as straightforward as storing in in a `SessionStorage`.
+However, there's one elephant in the room - **Avatar file**, it's to big to be stored in `SessionStorage`.
+For such cases `indexedDB` exists. I found out that `vueuse` has integration with [`idb-keyval`](https://github.com/jakearchibald/idb-keyval#readme).
+It turned out to be the perfect solution. It even exposes a vue's `ref` to synchronously manipulate the data. So I could replace:
+
+```typescript
+  const user = ref<Partial<User>>({})
+```
+
+with:
+
+```typescript
+  const { data: user } = useIDBKeyval<Partial<User>>('user:user', {}, { deep: true })
+```
+
+And it worked as expected, updating the `indexedDB` entry "in the background".
+All I had to do was to somehow **invalidate** the stored data if session has ended. 
+And that's how `useSessionIDBKeyval` came to life
+
+### Phone number validation
+
+I used `libphonenumber-js` for phone validation. It uses Google's [`libphonenumber`](https://github.com/google/libphonenumber) underneath
+
+### Component styled wihtout libs
+
+`AvatarInput` was styled without the use of tailwindCSS
