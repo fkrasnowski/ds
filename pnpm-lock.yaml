@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@ibash/libphonenumber-js':
+        specifier: ^1.10.61
+        version: 1.10.61
       '@vueuse/core':
         specifier: ^10.9.0
         version: 10.9.0(vue@3.4.27(typescript@5.4.5))
@@ -434,6 +437,9 @@ packages:
 
   '@humanwhocodes/object-schema@2.0.3':
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
+
+  '@ibash/libphonenumber-js@1.10.61':
+    resolution: {integrity: sha512-ixAJ0EVRSOukFmdAJ9LDCA2OnVIkSNmI1XieMa+6q+q7Wu3Hef+QwHBOzh31ZngUSgiSfnJIWGMQjwScdFmFug==}
 
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -2345,6 +2351,8 @@ snapshots:
   '@humanwhocodes/module-importer@1.0.1': {}
 
   '@humanwhocodes/object-schema@2.0.3': {}
+
+  '@ibash/libphonenumber-js@1.10.61': {}
 
   '@isaacs/cliui@8.0.2':
     dependencies:

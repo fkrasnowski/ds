@@ -13,6 +13,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@ibash/libphonenumber-js": "^1.10.61",
     "@vueuse/core": "^10.9.0",
     "@vueuse/integrations": "^10.9.0",
     "idb-keyval": "^6.2.1",
