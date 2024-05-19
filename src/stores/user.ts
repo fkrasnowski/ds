@@ -1,5 +1,6 @@
+import { useSessionIDBKeyval } from '@/utils/session-kv'
+import { useSessionStorage } from '@vueuse/core'
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
 import { z } from 'zod'
 
 const userSchema = z.object({
@@ -15,8 +16,15 @@ const userSchema = z.object({
 type User = z.infer<typeof userSchema>
 
 export const useUserStore = defineStore('user', () => {
-  const user = ref<Partial<User>>({})
-  const userValidation = ref<Partial<Record<keyof User, string>>>({})
+  const { data: user, isFinished } = useSessionIDBKeyval<Partial<User>>(
+    'user:user',
+    {},
+    { deep: true }
+  )
+  const userValidation = useSessionStorage<Partial<Record<keyof User, string>>>(
+    'user:user-validation',
+    {}
+  )
 
   async function validate() {
     const validation = await userSchema.safeParseAsync(user.value)
@@ -40,5 +48,5 @@ export const useUserStore = defineStore('user', () => {
     }
   }
 
-  return { user, userValidation, validate, validateField }
+  return { user, userValidation, isFinished, validate, validateField }
 })

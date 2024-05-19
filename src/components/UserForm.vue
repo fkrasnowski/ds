@@ -6,11 +6,11 @@ import Textarea from '@/components/Textarea.vue'
 import AvatarInput from '@/components/AvatarInput.vue'
 
 const userStore = useUserStore()
-const { user, userValidation } = storeToRefs(userStore)
+const { user, userValidation, isFinished } = storeToRefs(userStore)
 </script>
 
 <template>
-  <form class="flex flex-col">
+  <form v-if="isFinished" class="flex flex-col">
     <Input
       type="text"
       label="First Name"
