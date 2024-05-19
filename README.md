@@ -63,7 +63,7 @@ Like Apollo with the `cache`, or a WebSocket connection, server validation etc.
 
 \+ I want store this data for the session - would it be easy to do with library like `veevalidate`?
 
-I have expirence with `veevalidate` and similar libraries.
+I have expirience with `veevalidate` and similar libraries.
 And the reality is they're less flexible than a simple state manager like Pinia,
 where you can just use vue composables.
 I think it's better to integrate such library when you **already have** backend API defined,
