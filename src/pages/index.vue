@@ -7,7 +7,7 @@ import Footer from '@/components/Footer.vue'
   <header>
     <Navbar />
   </header>
-  <main class="h-screen">
+  <main class="min-h-screen">
     <div class="h-full grid place-content-center" v-if="$route.path === '/'">
       <RouterLink to="/user">User</RouterLink>
       <RouterLink to="/user-form">User Form</RouterLink>
