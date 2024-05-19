@@ -25,7 +25,7 @@ function onBlur() {
   <InputLabel :label :error>
     <textarea
       placeholder=""
-      class="input input-bordered w-full min-h-32 max-w-md"
+      class="input input-bordered w-full min-h-32"
       :class="{ 'input-error': error }"
       v-model="model"
       @blur="onBlur"

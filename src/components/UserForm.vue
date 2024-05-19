@@ -4,13 +4,23 @@ import Input from '@/components/Input.vue'
 import { storeToRefs } from 'pinia'
 import Textarea from '@/components/Textarea.vue'
 import AvatarInput from '@/components/AvatarInput.vue'
+import { useRouter } from 'vue-router/auto'
 
 const userStore = useUserStore()
-const { user, userValidation, isFinished } = storeToRefs(userStore)
+const { user, userValidation, isFinished, isSubmitted } = storeToRefs(userStore)
+
+const router = useRouter()
+
+async function onSubmit() {
+  const submitted = await userStore.submit()
+  if (submitted) {
+    router.replace('/user')
+  }
+}
 </script>
 
 <template>
-  <form v-if="isFinished" class="flex flex-col">
+  <form v-if="isFinished && !isSubmitted" class="flex flex-col my-4">
     <Input
       type="text"
       label="First Name"
@@ -58,5 +68,9 @@ const { user, userValidation, isFinished } = storeToRefs(userStore)
       :error="userValidation.avatar"
       @validate="userStore.validateField('avatar')"
     />
+    <button type="submit" @click.prevent="onSubmit" class="btn btn-primary w-full my-4">
+      Submit
+    </button>
   </form>
+  <div v-else-if="isSubmitted">Form submitted</div>
 </template>

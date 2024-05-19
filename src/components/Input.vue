@@ -27,7 +27,7 @@ function onBlur() {
     <input
       :type="type"
       placeholder=""
-      class="input input-bordered w-full max-w-md"
+      class="input input-bordered w-full"
       :class="{ 'input-error': error }"
       v-model="model"
       @blur="onBlur"

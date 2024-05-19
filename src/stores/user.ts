@@ -2,6 +2,7 @@ import { useSessionIDBKeyval } from '@/utils/session-kv'
 import { zFile, zPhoneNumber } from '@/utils/zod'
 import { useSessionStorage } from '@vueuse/core'
 import { defineStore } from 'pinia'
+import { readonly } from 'vue'
 import { z } from 'zod'
 
 const userSchema = z.object({
@@ -26,6 +27,7 @@ export const useUserStore = defineStore('user', () => {
     'user:user-validation',
     {}
   )
+  const isSubmitted = useSessionStorage('user:is-submitted', false)
 
   async function validate() {
     const validation = await userSchema.safeParseAsync(user.value)
@@ -49,5 +51,19 @@ export const useUserStore = defineStore('user', () => {
     }
   }
 
-  return { user, userValidation, isFinished, validate, validateField }
+  async function submit() {
+    const isValid = await validate()
+    if (isValid) isSubmitted.value = true
+    return isValid
+  }
+
+  return {
+    user,
+    userValidation,
+    isFinished,
+    isSubmitted: readonly(isSubmitted),
+    validate,
+    validateField,
+    submit
+  }
 })
