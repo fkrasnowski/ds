@@ -1,5 +1,9 @@
 # ds
 
+## Deployment
+
+Check out the deployed site at [ds.krasnowski.dev](https://ds.krasnowski.dev/)
+
 ## Project Setup
 
 ```sh
@@ -41,13 +45,13 @@ So it's a good option for prototyping + [`unplugin-vue-router`](https://github.c
 
 - TailwindCSS + (`daisyui`)[https://github.com/saadeghi/daisyui] as component library
 
-TailwindCSS is excellent for crafting prototypes, (`daisyui`)[https://github.com/saadeghi/daisyui] is popular tailwind-based component library
+TailwindCSS is excellent for crafting prototypes, (`daisyui`)[https://github.com/saadeghi/daisyui] is a popular tailwind-based component library
 
 ### State Management
 
 - Pinia
 
-Pinia is de facto standard for state managment in Vue 3
+Pinia is de facto standard for state management in Vue 3
 
 ### Form handling
 
@@ -55,23 +59,23 @@ Pinia is de facto standard for state managment in Vue 3
 
 `zod` works great with TypeScript and is super popular
 
-Why not form library like `veevalidate`?
+Why not form a library like `veevalidate`?
 
 I don't want to introduce another _state container_ for the form.
 Especially if the app has to be _backend proof_. What I use some sofisticated API?
 Like Apollo with the `cache`, or a WebSocket connection, server validation etc.
 
-\+ I want store this data for the session - would it be easy to do with library like `veevalidate`?
+\+ I want to store this data for the session - would it be easy to do with library like `veevalidate`?
 
-I have expirience with `veevalidate` and similar libraries.
+I have experience with `veevalidate` and similar libraries.
 And the reality is they're less flexible than a simple state manager like Pinia,
 where you can just use vue composables.
 I think it's better to integrate such library when you **already have** backend API defined,
-then it could help you streamline the work and strucutre the code
+then it could help you streamline the work and structure the code
 
 ### Other Features
 
-### Session presistence
+### Session persistence
 
 Persisiting most user data could be as straightforward as storing in in a `SessionStorage`.
 However, there's one elephant in the room - **Avatar file**, it's to big to be stored in `SessionStorage`.
@@ -96,6 +100,6 @@ And that's how `useSessionIDBKeyval` came to life
 
 I used `libphonenumber-js` for phone validation. It uses Google's [`libphonenumber`](https://github.com/google/libphonenumber) underneath
 
-### Component styled wihtout libs
+### Component styled without libs
 
 `AvatarInput` was styled without the use of tailwindCSS
