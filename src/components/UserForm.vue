@@ -2,6 +2,7 @@
 import { useUserStore } from '@/stores/user'
 import Input from '@/components/Input.vue'
 import { storeToRefs } from 'pinia'
+import Textarea from '@/components/Textarea.vue'
 
 const userStore = useUserStore()
 const { user, userValidation } = storeToRefs(userStore)
@@ -43,6 +44,12 @@ const { user, userValidation } = storeToRefs(userStore)
       v-model="user.birthday"
       :error="userValidation.birthday"
       @validate="userStore.validateField('birthday')"
+    />
+    <Textarea
+      label="About"
+      v-model="user.about"
+      :error="userValidation.about"
+      @validate="userStore.validateField('about')"
     />
   </form>
 </template>

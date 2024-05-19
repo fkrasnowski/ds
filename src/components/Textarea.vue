@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { type InputHTMLAttributes, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import InputLabel from '@/components/InputLabel.vue'
 
 defineProps<{
-  type: Extract<InputHTMLAttributes['type'], 'text' | 'email' | 'date' | 'tel'>
   label: string
   error?: string
 }>()
@@ -24,10 +23,9 @@ function onBlur() {
 
 <template>
   <InputLabel :label :error>
-    <input
-      :type="type"
+    <textarea
       placeholder=""
-      class="input input-bordered w-full max-w-md"
+      class="input input-bordered w-full min-h-32 max-w-md"
       :class="{ 'input-error': error }"
       v-model="model"
       @blur="onBlur"
