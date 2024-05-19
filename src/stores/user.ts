@@ -1,4 +1,5 @@
 import { useSessionIDBKeyval } from '@/utils/session-kv'
+import { zFile } from '@/utils/zod'
 import { useSessionStorage } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { z } from 'zod'
@@ -10,7 +11,7 @@ const userSchema = z.object({
   phone: z.string(),
   birthday: z.string().date(),
   about: z.string().optional(),
-  avatar: z.instanceof(File)
+  avatar: zFile({ allowedFileTypes: ['image/png', 'image/jpeg', 'image/gif'], maxSizeMB: 5 })
 })
 
 type User = z.infer<typeof userSchema>
