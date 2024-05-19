@@ -61,10 +61,18 @@ function onDrop(files: File[] | null) {
 }
 
 .avatar {
-  width: 10rem;
-  height: 10rem;
+  --avatar-size: 10rem;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  min-width: var(--avatar-size);
   border-radius: 100%;
   background-color: #becad5;
+}
+
+@media screen and (max-width: 300px) {
+    .avatar {
+        --avatar-size: 7rem;
+    }
 }
 
 img {
