@@ -1,7 +1,7 @@
 <template>
   <footer class="footer p-10 bg-base-200 text-base-content">
     <aside>
-      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="50" height="50" />
+      <img alt="Vue logo" class="logo" src="@/assets/logo.png" width="50" height="50" />
       <p>Krasnowski<br />Providing reliable tech since down of time</p>
     </aside>
     <nav>

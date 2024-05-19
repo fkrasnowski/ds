@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar bg-base-100">
+  <nav class="h-10 navbar bg-base-300 px-4">
     <div class="navbar-start">
       <RouterLink to="/">
-        <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="32" height="32" />
+        <img alt="Vue logo" class="logo" src="@/assets/logo.png" width="32" height="32" />
       </RouterLink>
     </div>
     <div class="navbar-center">
